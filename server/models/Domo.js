@@ -13,7 +13,7 @@ const DomoSchema = new mongoose.Schema({
   type: {
     type: String,
     trim: true,
-    default: 'Normal'
+    default: 'Normal',
   },
   age: {
     type: Number,

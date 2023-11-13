@@ -27,13 +27,11 @@ const makeDomo = async (req, res) => {
   }
 };
 
-const makerPage = async (req, res) => {
-  return res.render('app');
-};
+const makerPage = async (req, res) => res.render('app');
 
 const getDomos = async (req, res) => {
   try {
-    const query = {owner: req.session.account._id};
+    const query = { owner: req.session.account._id };
     const docs = await Domo.find(query).select('name age type').lean().exec();
 
     return res.json({ domos: docs });
@@ -46,7 +44,7 @@ const getDomos = async (req, res) => {
 /// Delete a domo
 const deleteDomo = async (req, res) => {
   try {
-    // Get the query for the domo to delete (domo must be created by the current user and has the same id)
+    // Get the query for the domo to delete
     const query = { owner: req.session.account._id, _id: req.params.id };
 
     // Delete the domo
