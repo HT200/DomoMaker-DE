@@ -10,6 +10,11 @@ const DomoSchema = new mongoose.Schema({
     trim: true,
     set: setName,
   },
+  type: {
+    type: String,
+    trim: true,
+    default: 'Normal'
+  },
   age: {
     type: Number,
     min: 0,
